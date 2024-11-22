@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="furkan.css">
+</head>
+<body>
+        <div th:each="furkan : ${furkans}">
+            <h1 th:text="${furkan.id}"></h1>
+            <div th:text="${furkan.name}"></div>
+        </div>
+</body>
+</html>
