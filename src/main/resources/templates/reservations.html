@@ -18,7 +18,7 @@
                 <li><a th:href="@{/books}">Books</a></li>
                 <li><a th:href="@{/reservations}" class="active">Reservations</a></li>
                 <li><a th:href="@{/about}">About</a></li>
-                <li th:if="${not loggedIn}"><a th:href="@{/login}">Log In</a></li>
+                <li><a th:href="@{/login}">Log In</a></li>
                 <li th:if="${loggedIn}"><a href="#" onclick="logout()">Log Out</a></li>
             </ul>
         </nav>
