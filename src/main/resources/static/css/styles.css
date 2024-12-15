@@ -1,0 +1,378 @@
+/* Genel Ayarlar */
+body {
+    font-family: 'Poppins', sans-serif; /* Daha ferah ve modern bir yazı tipi */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+    color: #4a4a4a;
+    background-color: #fff7e6; /* Sıcak turuncu bir arka plan */
+}
+
+h1, h2, p {
+    margin: 0;
+}
+
+/* Header */
+.header {
+    background-color: #ff7043; /* Canlı turuncu tonu */
+    color: white;
+    padding: 1rem 0;
+}
+
+.header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navbar Styling */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    background-color: #ff7043;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #e64a19;
+}
+
+.navbar a.active {
+    background-color: #e64a19;
+    color: white;
+}
+
+/* General Page Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+    color: #4a4a4a;
+    background-color: #fff7e6;
+}
+/* Main Content */
+.main-content {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(to bottom right, #fff7e6, #ffe0b2); /* Turuncu pastel degrade */
+    min-height: calc(100vh - 140px); /* Header ve footer dahil ekranı kaplar */
+}
+
+.hero-section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #e64a19; /* Daha koyu bir turuncu */
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #5a5a5a; /* Hafif koyu gri */
+}
+
+.btn {
+    background-color: #ff7043; /* Canlı turuncu */
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px; /* Yumuşak köşeler */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #e64a19; /* Daha koyu turuncu */
+    transform: scale(1.05); /* Hafif büyüme efekti */
+}
+
+/* Footer */
+.footer {
+    background-color: #ff7043; /* Canlı turuncu */
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+}
+
+/* Login Container */
+.login-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    font-size: 2.5rem;
+    color: #ff7043;
+    margin-bottom: 1rem;
+}
+
+.login-container p {
+    font-size: 1.1rem;
+    color: #5a5a5a;
+    margin-bottom: 2rem;
+}
+
+.login-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.login-column {
+    flex: 1;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-column h3 {
+    font-size: 1.5rem;
+    color: #e64a19;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #ff7043;
+    outline: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #ff7043;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e64a19;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-section h2 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+    }
+
+    /* Register Form Container */
+    .login-container {
+        max-width: 400px; /* Belirli bir genişlikle sınırlı */
+        margin: 3rem auto; /* Ortalamak için otomatik margin */
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .login-container h2 {
+        font-size: 2rem;
+        color: #ff7043;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .form-group input {
+        width: 100%; /* Form alanı genişliği container'a uyumlu */
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-group input:focus {
+        border-color: #ff7043; /* Odaklanıldığında turuncu çerçeve */
+        box-shadow: 0 0 5px rgba(255, 112, 67, 0.5);
+        outline: none;
+    }
+
+    button.btn {
+        width: 100%; /* Buton genişliği container'a uyumlu */
+        padding: 0.8rem;
+        background-color: #ff7043;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button.btn:hover {
+        background-color: #e64a19;
+        transform: scale(1.02); /* Hafif büyüme efekti */
+    }
+
+    .login-container p {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    .login-container a {
+        color: #ff7043;
+        text-decoration: none;
+    }
+
+    .login-container a:hover {
+        text-decoration: underline;
+    }
+
+/* About Section */
+.about-section {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    color: #ff7043;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    color: #4a4a4a;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.about-section h3 {
+    font-size: 1.8rem;
+    color: #e64a19;
+    margin-top: 2rem;
+}
+
+.about-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-section ul li {
+    font-size: 1.1rem;
+    color: #5a5a5a;
+    margin-bottom: 0.8rem;
+}
+/* Dashboard Section */
+.dashboard-section {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-section h2 {
+    font-size: 2.5rem;
+    color: #ff7043;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.dashboard-section p {
+    font-size: 1.1rem;
+    color: #4a4a4a;
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1.8;
+}
+
+.dashboard-section ul li {
+    font-size: 1.1rem;
+    color: #5a5a5a;
+    margin-bottom: 0.8rem;
+}
+
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books - Library Management System</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Thymeleaf ile CSS Bağlama -->
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <!-- Thymeleaf ile JS Bağlama -->
+    <script th:src="@{/script.js}" defer></script>
+</head>
+<body onload="toggleNavbarButtons()">
+<header class="header">
+    <div class="container">
+        <h1>Library Management System</h1>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <ul>
+                <li><a th:href="@{/index.html}">Home</a></li>
+                <li><a th:href="@{/books.html}" class="active">Books</a></li>
+                <li><a th:href="@{/reservations.html}" id="reservations-link" style="display: none;">Reservations</a></li>
+                <li><a th:href="@{/about.html}">About</a></li>
+                <li><a th:href="@{/login.html}" id="login-link">Log In</a></li>
+                <li><a href="#" id="logout-btn" onclick="logout()" style="display: none;">Log Out</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <!-- Başlık ve Açıklama -->
+    <div class="books-header">
+        <h2>Explore Our Books</h2>
+        <p>Discover your next great read from our diverse collection of books.</p>
+    </div>
+
+    <!-- Kitap Listesi -->
+    <section class="book-list">
+        <div class="book" th:each="book : ${books}">
+            <h3 th:text="${book.title}">Book Title</h3>
+            <p><strong>Author:</strong> <span th:text="${book.author}">Author Name</span></p>
+            <p><strong>Genre:</strong> <span th:text="${book.genre}">Genre</span></p>
+            <p><strong>Status:</strong> <span th:text="${book.status}">Available</span></p>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>© 2024 Library Management System. All rights reserved.</p>
+</footer>
+</body>
+</html>
