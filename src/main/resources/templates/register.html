@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Library Management System</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <!-- Thymeleaf ile CSS Bağlama -->
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <!-- Thymeleaf ile JS Bağlama -->
+    <script th:src="@{/script.js}" defer></script>
 </head>
 <body>
 <header class="header">
@@ -13,19 +17,20 @@
         <h1>Library Management System</h1>
         <nav class="navbar">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="books.html">Books</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="login.html" id="login-link">Log In</a></li>
+                <li><a th:href="@{/index.html}">Home</a></li>
+                <li><a th:href="@{/books.html}">Books</a></li>
+                <li><a th:href="@{/about.html}">About</a></li>
+                <li><a th:href="@{/login.html}" id="login-link">Log In</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <main class="main-content">
-    <div class="login-container">
+    <!-- Register Container -->
+    <div class="register-container">
         <h2>Create an Account</h2>
-        <form action="/submit-register" method="POST">
+        <form th:action="@{/submit-register}" method="POST">
             <div class="form-group">
                 <label for="fullname">Full Name</label>
                 <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
@@ -48,7 +53,7 @@
             </div>
             <button type="submit" class="btn">Register</button>
         </form>
-        <p>Already have an account? <a href="login.html">Log In</a>.</p>
+        <p>Already have an account? <a th:href="@{/login.html}">Log In</a>.</p>
     </div>
 </main>
 

@@ -1,47 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Library Management System</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <!-- CSS Dosyasını Thymeleaf ile Bağlama -->
+    <link rel="stylesheet" th:href="@{/styles.css}">
 </head>
 <body>
 <header class="header">
     <div class="container">
         <h1>Library Management System</h1>
+        <!-- Navigation Bar -->
         <nav class="navbar">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="books.html">Books</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="login.html" id="login-link">Log In</a></li>
+                <li><a th:href="@{/index.html}">Home</a></li>
+                <li><a th:href="@{/books.html}">Books</a></li>
+                <li><a th:href="@{/about.html}" class="active">About</a></li>
+                <li><a th:href="@{/login.html}" id="login-link">Log In</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <main class="main-content">
+    <!-- About Section -->
     <div class="about-section">
         <h2>About Us</h2>
         <p>
-            Welcome to the Library Management System! Our platform is designed to provide a seamless and user-friendly way
-            to manage books, reservations, and library operations.
+            Welcome to the <strong>Library Management System</strong>! Our platform is designed to provide a seamless and
+            user-friendly way to manage books, reservations, and library operations.
         </p>
         <p>
-            Our goal is to make library management efficient for both library staff and members. With features like
-            online book reservations, easy-to-use search, and personalized member accounts, we aim to revolutionize the
-            way libraries operate.
+            Our goal is to make library management efficient for both <em>library staff</em> and <em>members</em>. With features
+            like <strong>online book reservations</strong>, an <strong>easy-to-use search</strong> interface, and
+            <strong>personalized member accounts</strong>, we aim to revolutionize the way libraries operate.
         </p>
         <p>
             Thank you for choosing our system. If you have any questions or feedback, feel free to contact us.
         </p>
+
+        <!-- Contact Information -->
         <h3>Contact Us</h3>
-        <ul>
-            <li>Email: support@librarysystem.com</li>
-            <li>Phone: +90 565 565 65 446</li>
-            <li>Address: Manisa Celal Bayar University</li>
+        <ul class="contact-info">
+            <li><strong>Email:</strong> <a href="mailto:support@librarysystem.com">support@librarysystem.com</a></li>
+            <li><strong>Phone:</strong> +90 565 565 65 446</li>
+            <li><strong>Address:</strong> Manisa Celal Bayar University</li>
         </ul>
     </div>
 </main>
