@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books - Library Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script> <!-- JavaScript dosyası -->
+</head>
+<body onload="toggleNavbarButtons()">
+<header class="header">
+    <div class="container">
+        <h1>Library Management System</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="books.html" class="active">Books</a></li>
+                <li><a href="reservations.html" id="reservations-link" style="display: none;">Reservations</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="login.html" id="login-link">Log In</a></li>
+                <li><a href="#" id="logout-btn" onclick="logout()" style="display: none;">Log Out</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <h2>Explore Our Books</h2>
+    <p>Discover your next great read from our collection.</p>
+</main>
+
+<footer class="footer">
+    <p>© 2024 Library Management System. All rights reserved.</p>
+</footer>
+</body>
+</html>

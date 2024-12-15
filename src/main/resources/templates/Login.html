@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - Library Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <h1>Library Management System</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="login.html" class="active">Log In</a></li>
+
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="login-container">
+        <h2>Welcome Back!</h2>
+        <p>Please log in to access the system</p>
+        <div class="login-columns">
+            <!-- User Login -->
+            <div class="login-column">
+                <h3>User Login</h3>
+                <form onsubmit="handleLogin('user'); return false;">
+                    <div class="form-group">
+                        <label for="user-username">Username</label>
+                        <input type="text" id="user-username" name="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-password">Password</label>
+                        <input type="password" id="user-password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn">Log In as User</button>
+                </form>
+                <p>Don't have an account? <a href="register.html">Register here</a>.</p>
+            </div>
+            <!-- Admin Login -->
+            <div class="login-column">
+                <h3>Admin Login</h3>
+                <form onsubmit="handleLogin('admin'); return false;">
+                    <div class="form-group">
+                        <label for="admin-username">Username</label>
+                        <input type="text" id="admin-username" name="username" placeholder="Enter your admin username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-password">Password</label>
+                        <input type="password" id="admin-password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn">Log In as Admin</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<form onsubmit="simulateLogin(); return false;">
+    <button type="submit" class="btn">Simulate Log In</button>
+</form>
+
+<script>
+    function simulateLogin() {
+        localStorage.setItem("isLoggedIn", true);
+        alert("You are now logged in!");
+        window.location.href = "index.html";
+    }
+</script>
+
+<footer class="footer">
+    <p>© 2024 Library Management System. All rights reserved.</p>
+</footer>
+</body>
+</html>
