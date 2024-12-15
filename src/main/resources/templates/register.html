@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Library Management System</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Thymeleaf ile CSS Bağlama -->
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <!-- Thymeleaf ile JS Bağlama -->
+    <script th:src="@{/script.js}" defer></script>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <h1>Library Management System</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a th:href="@{/index.html}">Home</a></li>
+                <li><a th:href="@{/books.html}">Books</a></li>
+                <li><a th:href="@{/about.html}">About</a></li>
+                <li><a th:href="@{/login.html}" id="login-link">Log In</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <!-- Register Container -->
+    <div class="register-container">
+        <h2>Create an Account</h2>
+        <form th:action="@{/submit-register}" method="POST">
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Choose a username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+            </div>
+            <button type="submit" class="btn">Register</button>
+        </form>
+        <p>Already have an account? <a th:href="@{/login.html}">Log In</a>.</p>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>© 2024 Library Management System. All rights reserved.</p>
+</footer>
+</body>
+</html>
