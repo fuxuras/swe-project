@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservations - Library Management System</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/styles.css">
-    <script src="/js/scripts.js"></script>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script th:src="@{/js/scripts.js}" defer></script>
 </head>
 <body>
 <header class="header">
@@ -14,12 +14,12 @@
         <h1>Library Management System</h1>
         <nav class="navbar">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="books.html">Books</a></li>
-                <li><a href="reservations.html" class="active">Reservations</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="login.html">Log In</a></li>
-                <li><a href="#" onclick="logout()">Log Out</a></li>
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/books}">Books</a></li>
+                <li><a th:href="@{/reservations}" class="active">Reservations</a></li>
+                <li><a th:href="@{/about}">About</a></li>
+                <li th:if="${not loggedIn}"><a th:href="@{/login}">Log In</a></li>
+                <li th:if="${loggedIn}"><a href="#" onclick="logout()">Log Out</a></li>
             </ul>
         </nav>
     </div>
@@ -29,7 +29,25 @@
     <div class="reservations-section">
         <h2>My Reservations</h2>
         <p>View and manage your book reservations.</p>
-        <!-- Reservations content goes here -->
+
+        <!-- Thymeleaf ile dinamik veri gösterimi -->
+        <table>
+            <thead>
+            <tr>
+                <th>Book Title</th>
+                <th>Reservation Date</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Thymeleaf kullanarak rezervasyon listesi -->
+            <tr th:each="reservation : ${reservations}">
+                <td th:text="${reservation.bookTitle}">Book Title</td>
+                <td th:text="${reservation.date}">2024-12-15</td>
+                <td th:text="${reservation.status}">Pending</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </main>
 
