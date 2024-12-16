@@ -5,6 +5,8 @@ import com.swe.libary_project.repositories.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class MemberService {
@@ -23,5 +25,9 @@ public class MemberService {
         member.setRole("USER");
         memberRepository.save(member);
         return true;
+    }
+
+    public Optional<Member> getMemberByUsername(String username) {
+        return Optional.ofNullable(memberRepository.findByUsername(username));
     }
 }
