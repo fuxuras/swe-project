@@ -28,6 +28,6 @@ public class MemberService {
     }
 
     public Optional<Member> getMemberByUsername(String username) {
-        return Optional.ofNullable(memberRepository.findByUsername(username));
+        return memberRepository.findByUsername(username);
     }
 }
