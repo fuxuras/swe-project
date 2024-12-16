@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "books")
@@ -29,6 +30,9 @@ public class Book {
     @Column(length = 500)
     private String synopsis; // Özet
 
+
     private LocalDate publicationDate;
 
+    @OneToMany(mappedBy = "owner")
+    private List<Reservation> reservations;
 }
