@@ -15,10 +15,10 @@
         <h1>Library Management System</h1>
         <nav class="navbar">
             <ul>
-                <li><a th:href="@{/index.html}">Home</a></li>
-                <li><a th:href="@{/books.html}">Books</a></li>
-                <li><a th:href="@{/about.html}">About</a></li>
-                <li><a th:href="@{/login.html}">Log In</a></li>
+                <li><a th:href="@{/index}">Home</a></li>
+                <li><a th:href="@{/books}">Books</a></li>
+                <li><a th:href="@{/about}">About</a></li>
+                <li><a th:href="@{/login}">Log In</a></li>
 
             </ul>
         </nav>
@@ -35,8 +35,8 @@
                 <h3>User Login</h3>
                 <form onsubmit="handleLogin('user'); return false;">
                     <div class="form-group">
-                        <label for="user-username">Username</label>
-                        <input type="text" id="user-username" name="username" placeholder="Enter your username" required>
+                        <label for="user-mail">Mail</label>
+                        <input type="text" id="user-mail" name="mail" placeholder="Enter your mail" required>
                     </div>
                     <div class="form-group">
                         <label for="user-password">Password</label>
@@ -44,15 +44,15 @@
                     </div>
                     <button type="submit" class="btn">Log In as User</button>
                 </form>
-                <p>Don't have an account? <a th:href="@{/register.html}">Register here</a>.</p>
+                <p>Don't have an account? <a th:href="@{/register}">Register here</a>.</p>
             </div>
             <!-- Admin Login -->
             <div class="login-column">
                 <h3>Admin Login</h3>
                 <form onsubmit="handleLogin('admin'); return false;">
                     <div class="form-group">
-                        <label for="admin-username">Username</label>
-                        <input type="text" id="admin-username" name="username" placeholder="Enter your admin username" required>
+                        <label for="admin-mail">Mail</label>
+                        <input type="text" id="admin-mail" name="mail" placeholder="Enter your admin mail" required>
                     </div>
                     <div class="form-group">
                         <label for="admin-password">Password</label>

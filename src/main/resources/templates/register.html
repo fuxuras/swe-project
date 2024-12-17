@@ -17,10 +17,10 @@
         <h1>Library Management System</h1>
         <nav class="navbar">
             <ul>
-                <li><a th:href="@{/index.html}">Home</a></li>
-                <li><a th:href="@{/books.html}">Books</a></li>
-                <li><a th:href="@{/about.html}">About</a></li>
-                <li><a th:href="@{/login.html}" id="login-link">Log In</a></li>
+                <li><a th:href="@{/index}">Home</a></li>
+                <li><a th:href="@{/books}">Books</a></li>
+                <li><a th:href="@{/about}">About</a></li>
+                <li><a th:href="@{/login}" id="login-link">Log In</a></li>
             </ul>
         </nav>
     </div>
@@ -32,17 +32,18 @@
         <h2>Create an Account</h2>
         <form th:action="@{/submit-register}" method="POST">
             <div class="form-group">
-                <label for="fullname">Full Name</label>
-                <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="surname">Surname</label>
+                <input type="text" id="surname" name="surname" placeholder="Enter your surname" required>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
             </div>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Choose a username" required>
-            </div>
+
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Create a password" required>
@@ -53,7 +54,7 @@
             </div>
             <button type="submit" class="btn">Register</button>
         </form>
-        <p>Already have an account? <a th:href="@{/login.html}">Log In</a>.</p>
+        <p>Already have an account? <a th:href="@{/login}">Log In</a>.</p>
     </div>
 </main>
 
