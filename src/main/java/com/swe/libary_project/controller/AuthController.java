@@ -24,8 +24,8 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public String register(@RequestParam String username, @RequestParam String password, @RequestParam String mail){
-        if (memberService.createMember(username,mail,password)){
+    public String register(@RequestParam String name, @RequestParam String surname, @RequestParam String password, @RequestParam String mail){
+        if (memberService.createMember(name, surname,mail,password)){
             return "redirect:/login";
         }else {
             return "redirect:/register?error";

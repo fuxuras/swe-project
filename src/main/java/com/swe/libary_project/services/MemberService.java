@@ -15,12 +15,13 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
 
-    public boolean createMember(String username, String mail, String password) {
-        if (memberRepository.existsByUsername(username)){
+    public boolean createMember(String name, String surname, String mail, String password) {
+        if (memberRepository.existsByMail(mail)){
             return false;
         }
         Member member = new Member();
-        member.setUsername(username);
+        member.setName(name);
+        member.setSurname(surname);
         member.setMail(mail);
         member.setPassword(password);
         member.setRole("USER");
