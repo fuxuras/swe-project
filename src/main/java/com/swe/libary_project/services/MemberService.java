@@ -28,10 +28,7 @@ public class MemberService {
         memberRepository.save(member);
         return true;
     }
-
-    public Optional<Member> getMemberByUsername(String username) {
-        return memberRepository.findByUsername(username);
-    }
+    public Optional<Member> getMemberByMail(String mail) {return memberRepository.findByMail(mail);}
 
     public List<Member> getAllMembers() {
         return memberRepository.findAll();
