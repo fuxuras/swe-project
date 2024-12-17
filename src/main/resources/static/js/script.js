@@ -61,5 +61,13 @@ function checkRoleAndRedirect(expectedRole) {
     }
 }
 
+// ADDITION: Simulate Login (Optional for Testing)
+function simulateLogin(role) {
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("role", role);
+    alert(`Logged in as ${role}`);
+    window.location.href = "index.html"; // Redirect to homepage
+}
+
 // Sayfa yüklendiğinde navbar kontrolü
 window.onload = toggleNavbarButtons;

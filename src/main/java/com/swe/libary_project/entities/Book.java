@@ -33,6 +33,6 @@ public class Book {
 
     private LocalDate publicationDate;
 
-    @OneToMany(mappedBy = "owner")
+    @OneToMany(mappedBy = "book")
     private List<Reservation> reservations;
 }

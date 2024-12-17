@@ -75,6 +75,74 @@ body {
     min-height: calc(100vh - 140px); /* Header ve footer dahil ekranı kaplar */
 }
 
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(to bottom right, #fff7e6, #ffe0b2);
+}
+
+.hero-section h2 {
+    font-size: 2.8rem;
+    color: #ff7043;
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #5a5a5a;
+}
+
+/* Featured Books Section */
+.featured-books {
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.books-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.book-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 250px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.book-card h4 {
+    color: #ff7043;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.book-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.book-card .btn {
+    background-color: #ff7043;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.book-card .btn:hover {
+    background-color: #e64a19;
+}
+
 .hero-section h2 {
     font-size: 2.8rem;
     margin-bottom: 1rem;

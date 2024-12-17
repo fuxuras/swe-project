@@ -3,38 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Management System</title>
+    <title>Home - Library Management System</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Thymeleaf ile CSS Bağlama -->
+    <!-- CSS -->
     <link rel="stylesheet" th:href="@{/css/styles.css}">
-    <!-- Thymeleaf ile JS Bağlama -->
+    <!-- JavaScript -->
     <script th:src="@{/js/script.js}" defer></script>
 </head>
-<body>
+<body onload="toggleNavbarButtons()">
 <header class="header">
     <div class="container">
         <h1>Library Management System</h1>
-        <!-- Navigation Bar -->
         <nav class="navbar">
             <ul>
-                <li><a th:href="@{/index.html}">Home</a></li>
-                <li><a th:href="@{/books.html}">Books</a></li>
-                <li><a th:href="@{/reservations.html}" id="reservations-link" style="display: none;">Reservations</a></li>
-                <li><a th:href="@{/about.html}">About</a></li>
-                <li><a th:href="@{/login.html}" id="login-link">Log In</a></li>
-                <li><a href="#" id="logout-link" onclick="logout()" style="display: none;">Log Out</a></li>
+                <li><a th:href="@{/}" class="active">Home</a></li>
+                <li><a th:href="@{/books}">Books</a></li>
+                <li><a th:href="@{/reservations}" id="reservations-link" style="display: none;">Reservations</a></li>
+                <li><a th:href="@{/about}">About</a></li>
+                <li><a th:href="@{/login}" id="login-link">Log In</a></li>
+                <li><a href="#" id="logout-btn" onclick="logout()" style="display: none;">Log Out</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <main class="main-content">
-    <div class="hero-section">
-        <h2>Welcome!</h2>
-        <p>Explore our online library system and discover your next great read.</p>
-        <a th:href="@{/login.html}" class="btn">Log In to Get Started</a>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h2>Welcome to the Library Management System!</h2>
+        <p>Discover thousands of books and manage your reservations with ease.</p>
+        <a th:href="@{/books}" class="btn">Browse Books</a>
+    </section>
+
+    <!-- Featured Books -->
+    <section class="featured-books">
+        <h3>Featured Books</h3>
+        <div class="books-container">
+            <div class="book-card" th:each="book : ${featuredBooks}">
+                <h4 th:text="${book.title}">Book Title</h4>
+                <p><strong>Author:</strong> <span th:text="${book.author}">Author Name</span></p>
+                <p><strong>Genre:</strong> <span th:text="${book.genre}">Genre</span></p>
+                <a th:href="@{/books/{id}(id=${book.id})}" class="btn">View Details</a>
+            </div>
+        </div>
+    </section>
 </main>
 
 <footer class="footer">
