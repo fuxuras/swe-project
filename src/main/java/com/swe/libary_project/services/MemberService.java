@@ -5,6 +5,7 @@ import com.swe.libary_project.repositories.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,5 +30,9 @@ public class MemberService {
 
     public Optional<Member> getMemberByUsername(String username) {
         return memberRepository.findByUsername(username);
+    }
+
+    public List<Member> getAllMembers() {
+        return memberRepository.findAll();
     }
 }
