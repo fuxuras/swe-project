@@ -20,7 +20,9 @@ public class Member {
     @GeneratedValue
     private long id;
 
-    private String username;
+    private String name;
+
+    private String surname;
 
     private String mail;
 
