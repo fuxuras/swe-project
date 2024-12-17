@@ -23,7 +23,7 @@ public class AuthController {
         return "register";
     }
 
-    @PostMapping("/regiseter")
+    @PostMapping("/register")
     public String register(@RequestParam String username, @RequestParam String password, @RequestParam String mail){
         if (memberService.createMember(username,mail,password)){
             return "redirect:/login";
