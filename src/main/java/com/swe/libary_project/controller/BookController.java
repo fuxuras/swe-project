@@ -2,81 +2,95 @@ package com.swe.libary_project.controller;
 
 import com.swe.libary_project.entities.Book;
 import com.swe.libary_project.services.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/books")
+@Controller
+@RequiredArgsConstructor
+@RequestMapping("/books")
 public class BookController {
 
     private final BookService bookService;
 
-    @Autowired
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
-    }
-
-    // Tüm kitapları getir
-    @GetMapping
-    public ResponseEntity<List<Book>> getAllBooks() {
+    // Tüm kitapları listele
+    @GetMapping("")
+    public String getAllBooks(Model model) {
         List<Book> books = bookService.getAllBooks();
-        return ResponseEntity.ok(books);
+        model.addAttribute("books", books); // HTML sayfasına kitapları gönder
+        return "books"; // Thymeleaf template adı: books.html
     }
 
-    // ID'ye göre kitap getir
+    // ID'ye göre kitap detayını göster
     @GetMapping("/{id}")
-    public ResponseEntity<Book> getBookById(@PathVariable Long id) {
-        return bookService.getBookById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public String getBookById(@PathVariable Long id, Model model) {
+        Book book = bookService.getBookById(id)
+                .orElseThrow(() -> new RuntimeException("Book not found with ID: " + id));
+        model.addAttribute("book", book);
+        return "book-detail"; // Thymeleaf template adı: book-detail.html
+    }
+
+    // Yeni kitap ekleme sayfasını göster
+    @GetMapping("/add")
+    public String showAddBookForm(Model model) {
+        model.addAttribute("book", new Book());
+        return "add-book"; // Thymeleaf template adı: add-book.html
     }
 
     // Yeni kitap ekle
-    @PostMapping
-    public ResponseEntity<Book> addBook(@RequestBody Book book) {
-        Book newBook = bookService.addBook(book);
-        return ResponseEntity.ok(newBook);
+    @PostMapping("/add")
+    public String addBook(@ModelAttribute("book") Book book) {
+        bookService.addBook(book);
+        return "redirect:/books"; // Ekleme sonrası kitap listesine yönlendir
+    }
+
+    // Kitap güncelleme sayfasını göster
+    @GetMapping("/edit/{id}")
+    public String showUpdateForm(@PathVariable Long id, Model model) {
+        Book book = bookService.getBookById(id)
+                .orElseThrow(() -> new RuntimeException("Book not found with ID: " + id));
+        model.addAttribute("book", book);
+        return "edit-book"; // Thymeleaf template adı: edit-book.html
     }
 
     // Kitabı güncelle
-    @PutMapping("/{id}")
-    public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Book book) {
-        try {
-            Book updatedBook = bookService.updateBook(id, book);
-            return ResponseEntity.ok(updatedBook);
-        } catch (RuntimeException e) {
-            return ResponseEntity.notFound().build();
-        }
+    @PostMapping("/update/{id}")
+    public String updateBook(@PathVariable Long id, @ModelAttribute("book") Book updatedBook) {
+        bookService.updateBook(id, updatedBook);
+        return "redirect:/books";
     }
 
-    // ID'ye göre kitap sil
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
+    // Kitabı sil
+    @GetMapping("/delete/{id}")
+    public String deleteBook(@PathVariable Long id) {
         bookService.deleteBook(id);
-        return ResponseEntity.noContent().build();
+        return "redirect:/books";
     }
 
-    // Türüne (genre) göre kitapları getir
+    // Türüne (genre) göre kitapları listele
     @GetMapping("/genre/{genre}")
-    public ResponseEntity<List<Book>> getBooksByGenre(@PathVariable String genre) {
+    public String getBooksByGenre(@PathVariable String genre, Model model) {
         List<Book> books = bookService.getBooksByGenre(genre);
-        return ResponseEntity.ok(books);
+        model.addAttribute("books", books);
+        return "books"; // Aynı template kitap listesini gösterecek
     }
 
-    // Başlığa göre kelime araması yap
+    // Başlığa göre arama yap
     @GetMapping("/search")
-    public ResponseEntity<List<Book>> searchBooksByTitle(@RequestParam String keyword) {
+    public String searchBooks(@RequestParam String keyword, Model model) {
         List<Book> books = bookService.searchBooksByTitle(keyword);
-        return ResponseEntity.ok(books);
+        model.addAttribute("books", books);
+        return "books";
     }
 
     // Durumuna göre kitapları listele
     @GetMapping("/status/{status}")
-    public ResponseEntity<List<Book>> getBooksByStatus(@PathVariable String status) {
+    public String getBooksByStatus(@PathVariable String status, Model model) {
         List<Book> books = bookService.getBooksByStatus(status);
-        return ResponseEntity.ok(books);
+        model.addAttribute("books", books);
+        return "books";
     }
 }
