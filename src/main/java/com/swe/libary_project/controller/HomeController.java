@@ -24,4 +24,9 @@ public class HomeController {
         model.addAttribute("featuredBooks", featuredBooks);
         return "index";
     }
+
+    @GetMapping("/about")
+    public String aboutPage(Model model) {
+        return "about";
+    }
 }
