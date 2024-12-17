@@ -22,25 +22,22 @@ public class MemberDetailsService implements UserDetailsService {
     private final MemberRepository memberRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<Member> member = memberRepository.findByUsername(username);
-        if (member.isEmpty()){
-            throw new UsernameNotFoundException("User not found with username: " + username);
-        }
+    public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
+        Member member = memberRepository.findByMail(mail).orElseThrow(() -> new UsernameNotFoundException("User not found with mail: " + mail));
         return new UserDetails() {
             @Override
             public Collection<? extends GrantedAuthority> getAuthorities() {
-                return List.of(new SimpleGrantedAuthority(member.get().getRole()));
+                return List.of(new SimpleGrantedAuthority(member.getRole()));
             }
 
             @Override
             public String getPassword() {
-                return member.get().getPassword();
+                return member.getPassword();
             }
 
             @Override
             public String getUsername() {
-                return getUsername();
+                return member.getMail();
             }
         };
     }
