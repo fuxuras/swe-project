@@ -33,48 +33,24 @@
             <!-- User Login -->
             <div class="login-column">
                 <h3>User Login</h3>
-                <form onsubmit="handleLogin('user'); return false;">
+                <form th:action="@{/login}" method="POST">
                     <div class="form-group">
-                        <label for="user-mail">Mail</label>
-                        <input type="text" id="user-mail" name="mail" placeholder="Enter your mail" required>
+                        <label for="username">Mail</label>
+                        <input type="text" id="username" name="username" placeholder="Enter your mail" required>
                     </div>
                     <div class="form-group">
-                        <label for="user-password">Password</label>
-                        <input type="password" id="user-password" name="password" placeholder="Enter your password" required>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
                     </div>
                     <button type="submit" class="btn">Log In as User</button>
                 </form>
                 <p>Don't have an account? <a th:href="@{/register}">Register here</a>.</p>
             </div>
-            <!-- Admin Login -->
-            <div class="login-column">
-                <h3>Admin Login</h3>
-                <form onsubmit="handleLogin('admin'); return false;">
-                    <div class="form-group">
-                        <label for="admin-mail">Mail</label>
-                        <input type="text" id="admin-mail" name="mail" placeholder="Enter your admin mail" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="admin-password">Password</label>
-                        <input type="password" id="admin-password" name="password" placeholder="Enter your password" required>
-                    </div>
-                    <button type="submit" class="btn">Log In as Admin</button>
-                </form>
-            </div>
         </div>
     </div>
 </main>
-<form onsubmit="simulateLogin(); return false;">
-    <button type="submit" class="btn">Simulate Log In</button>
-</form>
 
-<script>
-    function simulateLogin() {
-        localStorage.setItem("isLoggedIn", true);
-        alert("You are now logged in!");
-        window.location.href = "index.html";
-    }
-</script>
+
 
 <footer class="footer">
     <p>© 2024 Library Management System. All rights reserved.</p>
