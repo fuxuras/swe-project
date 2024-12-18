@@ -3,6 +3,8 @@ package com.swe.libary_project.services;
 import com.swe.libary_project.entities.Member;
 import com.swe.libary_project.repositories.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +16,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    private final PasswordEncoder passwordEncoder;
 
     public boolean createMember(String name, String surname, String mail, String password) {
         if (memberRepository.existsByMail(mail)){
@@ -23,7 +26,7 @@ public class MemberService {
         member.setName(name);
         member.setSurname(surname);
         member.setMail(mail);
-        member.setPassword(password);
+        member.setPassword(passwordEncoder.encode(password));
         member.setRole("USER");
         memberRepository.save(member);
         return true;
