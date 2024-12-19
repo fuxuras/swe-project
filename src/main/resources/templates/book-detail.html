@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books - Library Management System</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Thymeleaf ile CSS Bağlama -->
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+  <!-- Thymeleaf ile JS Bağlama -->
+  <script th:src="@{/js/script.js}" defer></script>
+</head>
+<body onload="toggleNavbarButtons()">
+<header class="header">
+  <div class="container">
+    <h1>Library Management System</h1>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <ul>
+        <li><a th:href="@{/index}">Home</a></li>
+        <li><a th:href="@{/books}" class="active">Books</a></li>
+        <li><a th:href="@{/reservations}" id="reservations-link" style="display: none;">Reservations</a></li>
+        <li><a th:href="@{/about}">About</a></li>
+        <li sec:authorize="!isAuthenticated()"><a th:href="@{/login}" id="login-link">Log In</a></li>
+        <li><a href="#" id="logout-btn" onclick="logout()" style="display: none;">Log Out</a></li>
+        <li sec:authorize="isAuthenticated()">
+          <a th:href="@{/login}" onclick="logout()">Log Out</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="main-content">
+
+      <h1 th:text="${book.title}">Book Title</h1>
+      <p><strong>Author:</strong> <span th:text="${book.author}">Author Name</span></p>
+      <p><strong>Genre:</strong> <span th:text="${book.genre}">Genre</span></p>
+      <p><strong>Description:</strong> <span th:text="${book.synopsis}">Description</span></p>
+      <p><strong>Status:</strong> <span th:text="${book.status}">Available</span></p>
+      <a th:href="@{/books}">Back to List</a>
+
+</main>
+
+<footer class="footer">
+  <p>© 2024 Library Management System. All rights reserved.</p>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
