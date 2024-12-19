@@ -39,6 +39,15 @@
       <p><strong>Genre:</strong> <span th:text="${book.genre}">Genre</span></p>
       <p><strong>Description:</strong> <span th:text="${book.synopsis}">Description</span></p>
       <p><strong>Status:</strong> <span th:text="${book.status}">Available</span></p>
+  <!-- Borrow Button -->
+  <form th:action="@{/borrow/{id}(id=${book.id})}" method="post">
+    <button type="submit" class="btn">Borrow</button>
+  </form>
+
+  <!-- Reserve Button -->
+  <form th:action="@{/reserve/{id}(id=${book.id})}" method="post">
+    <button type="submit" class="btn">Reserve</button>
+  </form>
       <a th:href="@{/books}">Back to List</a>
 
 </main>
