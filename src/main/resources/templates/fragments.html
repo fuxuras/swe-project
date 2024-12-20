@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+
+<header th:fragment="navbar" class="header">
+    <div class="container">
+        <h1>Library Management System</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a th:href="@{/index}">Home</a></li>
+                <li><a th:href="@{/books}">Books</a></li>
+                <li><a th:href="@{/reservations}">Reservations</a></li>
+                <li><a th:href="@{/about}">About</a></li>
+                <li sec:authorize="!isAuthenticated()"><a th:href="@{/login}">Log Out</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Log In</a></li>
+
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<footer th:fragment="footer" class="footer">
+    <p>© 2024 Library Management System. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

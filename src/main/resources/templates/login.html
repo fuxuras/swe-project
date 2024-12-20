@@ -10,20 +10,8 @@
 
 </head>
 <body>
-<header class="header">
-    <div class="container">
-        <h1>Library Management System</h1>
-        <nav class="navbar">
-            <ul>
-                <li><a th:href="@{/index}">Home</a></li>
-                <li><a th:href="@{/books}">Books</a></li>
-                <li><a th:href="@{/about}">About</a></li>
-                <li><a th:href="@{/login}">Log In</a></li>
+<div th:replace="fragments :: navbar"></div>
 
-            </ul>
-        </nav>
-    </div>
-</header>
 
 <main class="main-content">
     <div class="login-container">
@@ -52,8 +40,7 @@
 
 
 
-<footer class="footer">
-    <p>© 2024 Library Management System. All rights reserved.</p>
-</footer>
+<div th:replace="fragments :: footer"></div>
+
 </body>
 </html>
